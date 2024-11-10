@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership-QCE</title>
+    <link rel="stylesheet" href="QCE.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@100..900&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+@font-face {
+            font-family: 'ScriberW00';
+            src: url('path/to/ScriberW00-Medium.woff2') format('woff2'),
+                 url('path/to/ScriberW00-Medium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --bg-color: #222327;
+    --text-color: #fff;
+    --main-color: #cb0c43;
+}
+
+body {
+    min-height: 130vh;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #222327;
+    padding: 28px 12%;
+    transition: all 0.5s ease;
+    border-bottom: 1px solid gray;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.kyusilogo {
+    font-size: 28px;
+    margin-right: 3px;
+    width: 50px;
+}
+
+.logo span {
+    color: var(--text-color);
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.navbar {
+    display: flex;
+    transition: all 0.5s ease;
+}
+
+.navbar a {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 5px 0;
+    margin: 0px 20px;
+    transition: all 0.5s ease;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+.navbar a.active {
+    color: var(--main-color);
+}
+
+.main {
+    display: flex;
+    align-items: center;
+}
+
+.main a {
+    margin-right: 15px;
+    margin-left: 5px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 7px;
+}
+
+.main a:hover {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    font-size: 35px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+}
+
+#menu-icon.bx-x {
+    color: var(--main-color);
+}
+
+
+.content {
+    margin: 250px 150px 0 139px;
+}
+.h1title {
+    font-size: 60px;
+    line-height: 66px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.h2content {
+    font-size: 45px;
+    font-family: 'ScriberW00', sans-serif;
+    font-weight: 500;
+    color: #C1C1C1;
+    text-align: justify;
+    
+}
+
+
+.box {
+    max-width: 1620px;  
+    padding: 0 30px 0 30px; 
+    margin: 150px 0 200px 10%; 
+    width: 80%; 
+    height: 200px;
+    background-color: #181818;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 500;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+}
+
+/* .jointheteam will stay as is */
+.jointheteam {
+    font-size: 1.8rem;
+    color: #cb0c43;
+    text-align: left;
+    margin-right: 20px;
+    flex: 1; /* Allow jointheteam to take remaining space */
+}
+
+.inputsignup {
+    display: flex;                /* Apply flexbox to the inputsignup container */
+    justify-content: flex-start;  /* Align children to the left */
+    align-items: center;          /* Center align input and button vertically */
+    width: 50%;                  /* Use full width available in .box */
+}
+
+/* Input type styling */
+.inputtype {
+    width: 80%;                   /* 80% width of the input field */
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+/* Signup button styling */
+.signup {
+    color: white;
+    margin-left: 10px;
+    width: 130px;
+    height: 40px;
+    font-size: 17px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #cb0c43;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 1611px) {
+    .content {
+    margin: 250px 150px 0 139px;
+}
+.h1title {
+    font-size: 60px;
+    line-height: 66px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.h2content {
+    font-size: 45px;
+    font-family: 'ScriberW00', sans-serif;
+    font-weight: 500;
+    color: #C1C1C1;
+    text-align: justify;
+    
+}
+    .box {
+        padding: 0 30px 0 30px; 
+        margin: 150px 0 200px 10%; 
+        width: 80%; 
+        height: 200px;
+        background-color: #181818;
+        border-radius: 30px;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 500;
+        
+        
+    }
+    .jointheteam {
+    font-size: 1.8rem;
+    color: #0a0a0a;
+    text-align: left;
+    margin-right: -50px;
+    
+}
+
+    .inputsignup {
+        width: 50%;
+        justify-content: flex-end; 
+        flex-wrap: wrap;
+    }
+
+    .inputtype {
+        width: 60%; 
+        
+    }
+
+}
+
+@media (max-width: 1370px) { 
+    .content {
+    margin: 250px 150px 0 139px;
+}
+.h1title {
+    font-size: 60px;
+    line-height: 66px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.h2content {
+    font-size: 45px;
+    font-family: 'ScriberW00', sans-serif;
+    font-weight: 500;
+    color: #C1C1C1;
+    text-align: justify;
+    
+}
+    .box { 
+        padding: 0 30px 0 30px; 
+        margin: 150px 0 200px 10%; 
+        width: 80%; 
+        height: 200px; 
+        background-color: #181818;
+        border-radius: 30px; 
+        font-family: "Roboto Condensed", sans-serif; 
+        font-weight: 500; 
+    } 
+    .jointheteam {
+    font-size: 1.8rem;
+    color: #0a0a0a;
+    text-align: left;
+    margin-right: -51px;
+    
+    }
+
+    .inputsignup {
+        width: 43%;
+        display: flex;
+        flex-direction: column;  
+        justify-content: flex-end; 
+        align-items: flex-end;
+    }
+
+    .inputtype {
+        width: 80%;  /* Take full width */
+        height: 40px;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 10px;  
+    }
+
+    /* Signup button styling */
+    .signup {
+        width: 80%; 
+        height: 40px;
+        font-size: 17px;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #cb0c43;
+        margin-left: 0; 
+    }
+}
+
+@media (max-width: 1209px) {
+    .content {
+    margin: 250px 150px 0 139px;
+}
+.h1title {
+    font-size: 60px;
+    line-height: 66px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.h2content {
+    font-size: 45px;
+    font-family: 'ScriberW00', sans-serif;
+    font-weight: 500;
+    color: #C1C1C1;
+    text-align: justify;
+    
+}
+    .box { 
+        padding: 0 30px 0 30px; 
+        margin: 150px 0 200px 10%; 
+        width: 80%; 
+        height: 300px; /* Increased height to give space for both input and button */
+        background-color: #181818;
+        border-radius: 30px; 
+        font-family: "Roboto Condensed", sans-serif; 
+        font-weight: 500; 
+        display: flex;
+        flex-direction: column;  /* Stack elements vertically */
+        justify-content: flex-start;
+        align-items: center;  /* Center align the contents inside .box */
+    }
+
+    /* Center the jointheteam text */
+    .jointheteam {
+        font-size: 1.8rem;
+        color: #0a0a0a;
+        text-align: center; /* Center the text */
+        margin: 0 0 20px -20px; /* Add space below the heading */
+    }
+
+    /* Adjust input and signup button container */
+    .inputsignup {
+        width: 60%; /* Make the container take 60% of the .box width */
+        display: flex;
+        flex-direction: column;  /* Stack input and button vertically */
+        justify-content: flex-start; /* Align items to the top */
+        align-items: center;  /* Align the items horizontally to the center */
+    }
+
+    .inputtype {
+        width: 100%;  /* Take full width */
+        height: 40px;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 10px;  /* Add space between input and button */
+    }
+
+    /* Signup button styling */
+    .signup {
+        width: 100%;  /* Make the button same width as the input */
+        height: 40px;
+        font-size: 17px;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #cb0c43;
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+    .content {
+    margin: 250px 150px 0 139px;
+}
+.h1title {
+    font-size: 60px;
+    line-height: 66px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.h2content {
+    font-size: 45px;
+    font-family: 'ScriberW00', sans-serif;
+    font-weight: 500;
+    color: #C1C1C1;
+    text-align: justify;
+    
+}
+    .box {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+       
+    }
+
+    .inputsignup {
+        width: 80%;           /* Adjust to full width */
+        justify-content: center; /* Center button and input */
+        flex-direction: column;  /* Stack the input and button vertically */
+    }
+
+    .inputtype {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 10px;
+    }
+
+    .signup {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .box {
+        margin: 100px 5%;
+        padding: 15px;
+    }
+
+    .inputtype {
+        width: 100%;
+    }
+
+    .signup {
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
+@media (max-width: 1280px) {
+    header {
+        padding: 14px 2%;
+    }
+    .navbar a {
+        margin: 0px 15px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .navbar a {
+        margin: 0px 10px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1090px) {
+    #menu-icon {
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -270px;
+        width: 270px;
+        height: auto;
+        background: var(--main-color);
+        flex-direction: column;
+        padding: 20px 0;
+        border-radius: 10px;
+        transition: right 0.5s ease;
+        overflow-y: auto;
+    }
+    .navbar.open {
+        right: 2%;
+    }
+    .navbar a {
+        color: var(--text-color);
+        margin: 12px 0;
+        padding: 0px 25px;
+    }
+}
+
+@media (max-width: 380px) {
+    header {
+        padding: 10px 5%;
+        flex-wrap: wrap;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        right: -270px;
+        width: 100%;
+        background: var(--main-color);
+        transition: right 0.5s ease;
+        padding: 20px 0;
+        z-index: 999;
+    }
+    .navbar.open {
+        right: 0;
+    }
+    .navbar a {
+        font-size: 0.9rem;
+        margin: 8px 0;
+        padding: 10px 15px;
+    }
+    .kyusilogo {
+        width: 40px;
+    }
+    .main {
+        flex: 1;
+    }
+    .main a {
+        font-size: 0.9rem;
+    }
+    #menu-icon {
+        display: block;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 360px) {
+    .navbar a {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+    .logo {
+        margin-right: auto;
+    }
+}
+
+
+
+/* FOOTER HERE */
+
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+    width: 100%;
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #fff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #fd3029;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #fff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: #fd3029;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #fff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #fd3029;
+	background-color: #fff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+
+
+</style>
+
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="KYUSI-E.png" class="kyusilogo" alt="Kyusi Logo">
+            <span>Kyusi Esports</span>
+        </a>
+
+        <ul class="navbar">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Esports</a></li>
+        </ul>
+
+        <div class="main">
+            <a href="#" class="user"><i class="ri-user-fill"></i>Sign in</a>
+            <a href="#">Register</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <div class="content">
+        <p class="h1title">Welcome New Challengers of QCU!</p>
+        <br>
+        <p class="h2content">We're beyond thrilled to get to know you and can't wait 
+                            for you to join our awesome community! Whether you're a fresh-faced first-year, 
+                            a seasoned senior, a casual gamer, a competitive beast, or just here for the fun, 
+                            the Kyusi Esports Community is the perfect place for you.
+                            <br><br>
+                            Ready to dive into the action? To be part of our ever-growing family, just fill out the form below. 
+                            Let’s game, die, and respawn together in the world of esports!</p>
+
+    </div>
+
+    <div class="box">
+        <p class="jointheteam"><span style="font-family: Oswald , sans-serif; 
+                                            font-size: 90px;
+                                            margin-left: 30px;
+                                            color: #cb0c43;">JOIN THE TEAM</span> <br> 
+                               <span style="font-size: 22.5px; color: white;">Join us now and level up your gaming experience!</span></p>
+    
+    <div class="inputsignup">
+    <input class="inputtype" type="text" placeholder="Enter your email address">
+    <button class="signup">SIGN UP</button>
+    </div>
+    
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="#">@KYUSIESPORTS</a></li>
+                        <li><a href="#">number nila</a></li>
+                        <li><a href="#">hindi ko na alam</a></li>
+                        <li><a href="#">673 Quirino Hwy, Novaliches, Quezon City, Metro Manila, Quezon City Philippines, 1666</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>hindi ko na alam</h4>
+                    <ul>
+                        <li><a href="#">wala pa</a></li>
+                        <li><a href="#">wala pa</a></li>
+                        <li><a href="#">wala pa</a></li>
+                        <li><a href="#">wala pa</a></li>
+                        <li><a href="#">wala pa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>ano ilalagay rito jemz</h4>
+                    <ul>
+                        <li><a href="#">wala pa</a></li>
+                        <li><a href="#">wala pa</a></li>
+                        <li><a href="#">wala pa</a></li>
+                        <li><a href="#">wala pa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Socials</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    let menu = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x'); 
+        navbar.classList.toggle('open'); 
+
+        if (navbar.classList.contains('open')) {
+            navbar.style.right = '0';
+        } else {
+            navbar.style.right = '-100%'; 
+        }
+    };
+});
+    </script>
+</body>
+</html>
